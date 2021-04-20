@@ -1,0 +1,69 @@
+<div class="item-page text-center">
+
+  <p style="text-align: center; color: #333; font-size: 24px; ;"><em><strong>ПОСЛУГИ ТА ЦІНИ</strong></em></p>
+  <p style="font-family: font2; font-size: 17px;"><span style="font-size: 18pt; color: #99cc00;"><strong>&nbsp;</strong></span></p>
+  <h2 class="text-center">
+    Не встигли замовити послугу?? <br>Замовте її онлайн!!
+  </h2>
+  <form #records="ngForm" class="form" (ngSubmit)="success()">
+    <div >
+      <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Ваше Імя</mat-label>
+          <input required name="name" matInput [(ngModel)]="order.name">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Ваш телефон</mat-label>
+          <input tel name="tell" pattern="[0-9]{10}" #phone="ngModel" required matInput [(ngModel)]="order.tell">
+          <div [hidden]="phone.valid || phone.untouched" class="alert alert-danger">
+            Некоректний номер телефон
+          </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Додаткові послуги</mat-label>
+          <mat-select  name="addition" [formControl]="toppings" multiple [(ngModel)]="order.additions">
+            <mat-option *ngFor="let topping of add" [value]="topping.name">{{topping.name}} + {{topping.prise}} грн</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+
+
+        <hr>
+        <button [disabled]="records.invalid || ds" mat-raised-button color="accent">Замовити</button>
+      </div>
+
+    </div>
+    <h2 *ngIf="ds" class="text-center">Замовлення послуг пройшло успішно"</h2>
+  </form>
+
+  <br>
+  <br>
+  <h2 class="text-center">
+      Тільки на рецершині!!
+  </h2>
+  <p><span style="font-family: font2; font-size: 18pt; font-style: normal; font-variant: normal; line-height: 19px; color: #99cc00;"><span style="font-family: font2; font-style: normal; font-variant: normal; line-height: 19px;">♦&nbsp;</span>Банька:</span></p>
+  <p style="margin-left: 30px;">Мінімальне замовлення 2 години.</p>
+  <p style="margin-left: 30px;"><span style="font-size: 12pt; color: #000000;">1 година &nbsp;– 300,00 грн.*</span></p>
+  <p style="margin-left: 30px;"><span style="font-size: 12pt; color: #000000;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal;">Починаючи з 3-ї години&nbsp;<span style="color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-weight: normal;">&nbsp;– 200,00 грн.</span></span></span></p>
+  <p style="margin-left: 30px;"><span style="font-size: 12pt; color: #000000;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal;"><span style="color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-weight: normal;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: 400;">*Одночасне користування банькою включає – 10 чоловік. </span></span></span></span></p>
+  <p style="margin-left: 30px;"><span style="font-size: 12pt; color: #000000;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: normal;"><span style="color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-weight: normal;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: normal; font-weight: 400;">(понад вказану кількість +50,00 грн. з кожної особи)</span></span></span></span></p>
+  <p><span style="font-family: font2; font-size: 17px; font-style: normal; font-variant: normal; line-height: 19px;">&nbsp;</span></p>
+  <p><span style="font-family: font2; font-size: 18pt; font-style: normal; font-variant: normal; line-height: 19px; color: #99cc00;"><span style="font-family: font2; font-style: normal; font-variant: normal; line-height: 19px;">♦&nbsp;</span>Чан:</span></p>
+  <p style="margin-left: 30px;">Мінімальне замовлення 2 години.</p>
+  <p style="margin-left: 30px;"><span style="font-size: 12pt; color: #000000;">1 година&nbsp;</span><span style="font-size: 12pt; color: #000000;">– 300,00 грн.*</span></p>
+  <p style="margin-left: 30px; font-style: normal; font-weight: normal; font-size: 12px; font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt; color: #000000;"><span style="font-style: normal; font-weight: normal; font-size: 12px; font-family: Arial, Helvetica, sans-serif;">Починаючи з 3-ї години&nbsp;<span style="font-style: normal; font-weight: normal; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">&nbsp;– 200,00 грн.</span></span></span></p>
+  <p style="margin-left: 30px; font-style: normal; font-weight: 400; font-size: 12px; font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt; color: #000000;"><span style="font-style: normal; font-weight: normal; font-size: 12px; font-family: Arial, Helvetica, sans-serif;">*Одночасне користування чаном включає – 10 чоловік.</span></span></p>
+  <p style="margin-left: 30px; font-style: normal; font-weight: 400; font-size: 12px; font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt; color: #000000;"><span style="font-style: normal; font-weight: normal; font-size: 12px; font-family: Arial, Helvetica, sans-serif;">(понад вказану кількість +50,00 грн. з кожної особи)</span></span></p>
+  <p style="margin-left: 30px; font-style: normal; font-weight: normal; font-size: 12px; font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt; color: #000000;"><span style="font-style: normal; font-weight: normal; font-size: 12px; font-family: Arial, Helvetica, sans-serif;"><span style="font-style: normal; font-weight: normal; font-size: 16px; font-family: Arial, Helvetica, sans-serif;">&nbsp;</span></span></span><span style="font-size: 12pt; color: #000000;">&nbsp;</span></p>
+  <p>&nbsp;<span style="font-family: font2; font-size: 18pt; font-style: normal; font-variant: normal; line-height: 19px; color: #99cc00;"><span style="font-family: font2; font-style: normal; font-variant: normal; line-height: 19px;">♦&nbsp;</span>Конференц зал</span></p>
+  <p style="margin-left: 30px;"><span style="font-size: 12pt; color: #000000;">Аренда на 1 годину &nbsp;– 150 грн.</span></p>
+  <p><span style="font-family: font2; font-size: 18pt; font-style: normal; font-variant: normal; line-height: 19px; color: #99cc00;"><span style="font-family: font2; font-style: normal; font-variant: normal; line-height: 19px;">♦&nbsp;</span>Затишний ресторан</span></p>
+  <p><span style="font-family: font2; font-size: 18pt; font-style: normal; font-variant: normal; line-height: 19px; color: #99cc00;"><span style="font-family: font2; font-style: normal; font-variant: normal; line-height: 19px;">♦&nbsp;</span>Літня тераса та альтанки</span></p>
+  <p><span style="font-family: font2; font-size: 18pt; font-style: normal; font-variant: normal; line-height: 19px; color: #99cc00;"><span style="font-family: font2; font-style: normal; font-variant: normal; line-height: 19px;">♦&nbsp;</span>Відкриті басейни та літній бар</span></p>
+  <p><span style="color: #99cc00; font-family: font2; font-size: 24px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal;">♦ Прокат велосипедів </span><sup style="color: #99cc00; font-family: font2; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal;">◄</sup><span style="font-family: font2; font-style: normal; font-variant: normal; color: #ff0000; font-size: 12pt; line-height: 19px;">new</span></p>
+  <p><span style="font-size: 12pt;">&nbsp;</span></p>
+
+
+</div>

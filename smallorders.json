@@ -1,0 +1,2 @@
+{ "_id" : { "$oid" : "5ecabd09ee1fe54f5038eb13" }, "additions" : [ "Вечеря", "Теніс", "Басейн", "Бання" ], "name" : "Roman Igorovich", "tell" : "8978789789" }
+{ "_id" : { "$oid" : "5ecabd59ee1fe54f5038eb14" }, "additions" : [ "Сніданок", "Вечеря", "Теніс", "Басейн" ], "name" : "Socket router", "tell" : "8978789789" }

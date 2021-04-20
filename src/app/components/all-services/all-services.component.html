@@ -1,0 +1,31 @@
+<h2 class="text-center">
+  Пошук
+</h2>
+<div class="text-center filter">
+  <mat-form-field appearance="fill">
+    <mat-label>Веддіть свій бюджет!</mat-label>
+    <input  [(ngModel)]="value" matInput >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Параметри пошуку!</mat-label>
+    <mat-select  name="addition" [formControl]="toppings" multiple>
+      <mat-option *ngFor="let topping of add" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button (click)="find()" mat-stroked-button color="primary">Пошук</button>
+</div>
+<div class="row">
+  <div *ngFor="let house of houses | sortByPr: prise | sortByPar: params" class="col-md-4 col-sm-6 item">
+    <div class="card item-card card-block">
+      <img src="{{house.img}}" alt="Photo of sunset">
+      <div class="info">
+        <h2>{{house.type}}</h2>
+        <h3 class="item-card-title mt-3 mb-3">{{house.name}} • <br> <span class="prs">{{house.prise}}</span> за ніч</h3>
+        <p class="inInfi"><span *ngFor="let info of house.info">{{info.type}}</span>
+        <p class="card-text">{{house.about | slice:0:110}} ...</p>
+        <button routerLink="single"  routerLink="{{house.id}}" mat-raised-button color="accent">Детальніше</button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-6">
+    <img class="houseImg" src="{{house.img}}" alt="">
+  </div>
+  <div class="col-6">
+    <div class="info">
+      <h2 class="item-card-title mt-3 mb-3">{{house.name}}</h2>
+      <p class="inInfi"><span *ngFor="let type of house.info">{{type.type}}</span></p>
+      <p class="card-text">{{house.about}}</p>
+      <hr>
+      <div class="prs">
+        <span>{{house.prise}}</span> за ніч
+      </div>
+    </div>
+  </div>
+</div>
+<h3 class="text-center">
+  Забронюйте!!
+</h3>
+<form #records="ngForm" class="form" (ngSubmit)="success()">
+  <div >
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Ваше Імя</mat-label>
+        <input required name="name" matInput [(ngModel)]="order.name">
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Ваш телефон</mat-label>
+        <input tel name="tell" pattern="[0-9]{10}" #phone="ngModel" required matInput [(ngModel)]="order.tell">
+        <div [hidden]="phone.valid || phone.untouched" class="alert alert-danger">
+          Некоректний номер телефон
+        </div>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Додаткові послуги</mat-label>
+        <mat-select  name="addition" [formControl]="toppings" multiple [(ngModel)]="order.additions">
+          <mat-option *ngFor="let topping of add" [value]="topping.name">{{topping.name}} + {{topping.prise}} грн</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Коментарь до замовлення</mat-label>
+        <textarea [(ngModel)]="order.coment" name="comm" matInput></textarea>
+      </mat-form-field>
+      <hr>
+      <button [disabled]="records.invalid || ds" mat-raised-button color="accent">Забронювати</button>
+    </div>
+
+  </div>
+  <h2 *ngIf="ds" class="text-center">Бронювання пройшло успішно"</h2>
+</form>

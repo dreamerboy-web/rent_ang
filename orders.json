@@ -1,0 +1,3 @@
+{ "_id" : { "$oid" : "5ecab9c929e5ce54e825d829" }, "name" : "Я хочу!", "tell" : "Я хочу!", "additions" : "Я хочу!", "coment" : "Я хочу!", "houseId" : 1, "houseName" : "Садиба лев", "prise" : 150 }
+{ "_id" : { "$oid" : "5ecabaac8b7c963588cf40a4" }, "name" : "Роман Коцур", "tell" : "8978789789", "additions" : "function join() { [native code] }", "coment" : "asdasdasd", "houseId" : 1, "houseName" : "Садиба лев", "prise" : 150 }
+{ "_id" : { "$oid" : "5ecabb0c06904e58302999d6" }, "additions" : [ "Сніданок", "Вечеря", "Теніс" ], "name" : "Roman Igorovich", "tell" : "0980756337", "coment" : "asdasd", "houseId" : 1, "houseName" : "Садиба лев", "prise" : 150 }
